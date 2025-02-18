@@ -109,12 +109,12 @@ unsafe fn configure_llvm(sess: &Session) {
             add("-wasm-enable-eh", false);
         }
 
-        if sess.target.os == "emscripten"
+        /* if sess.target.os == "emscripten"
             && !sess.opts.unstable_opts.emscripten_wasm_eh
             && sess.panic_strategy() == PanicStrategy::Unwind
         {
             add("-enable-emscripten-cxx-exceptions", false);
-        }
+        } */
 
         // HACK(eddyb) LLVM inserts `llvm.assume` calls to preserve align attributes
         // during inlining. Unfortunately these may block other optimizations.
